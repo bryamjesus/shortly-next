@@ -28,3 +28,7 @@ body {
 .container {
   @apply w-[90%] max-w-7xl mx-auto py-3 px-0;
 }
+
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-800 text-white py-4 px-3 rounded transition-all w-full;
+}
