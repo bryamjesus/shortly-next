@@ -1,7 +1,16 @@
-export const ButtonShortUrl = () => {
+interface Props {
+  disabled: boolean;
+}
+
+export const ButtonShortUrl = ({ disabled }: Props) => {
   return (
     <>
-      <button className="font-black btn-primary md:basis-1/3">Cortar</button>
+      <button
+        type="submit"
+        className="font-black btn-primary md:basis-1/3"
+        disabled={disabled}>
+        {disabled ? 'Escribe una URL válida' : 'Cortar'}
+      </button>
     </>
   );
 };
