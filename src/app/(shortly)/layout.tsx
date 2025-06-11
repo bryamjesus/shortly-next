@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer/Footer';
 import { NavBar } from '@/components/navbar/NavBar';
 
 export default function DashboardLayout({
@@ -8,7 +9,8 @@ export default function DashboardLayout({
   return (
     <>
       <NavBar />
-      <div className="w-full text-slate-900">{children}</div>
+      <div className="container text-slate-900">{children}</div>
+      <Footer />
     </>
   );
 }

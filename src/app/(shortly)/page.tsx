@@ -1,3 +1,7 @@
 export default function MainPage() {
-  return <></>;
+  return (
+    <>
+      <h1>Main</h1>
+    </>
+  );
 }
