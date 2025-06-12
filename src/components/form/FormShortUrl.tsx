@@ -1,4 +1,5 @@
 'use client';
+import { shortURL } from '@/actions/short-url';
 import { geistMono } from '@/config/fonts';
 import { useState } from 'react';
 import { ButtonShortUrl } from './ButtonShortUrl';
@@ -27,6 +28,8 @@ export const FormShortUrl = () => {
     console.log('hola', { url });
     setError('');
     setSubmitting(true);
+
+    shortURL();
     setSubmitting(false);
   };
   return (
