@@ -9,7 +9,9 @@ export default function DashboardLayout({
   return (
     <>
       <NavBar />
-      <div className="container text-slate-900">{children}</div>
+      <main>
+        <div className="container text-slate-900">{children}</div>
+      </main>
       <Footer />
     </>
   );
