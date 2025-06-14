@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UrlState {
-  url: string;
-  codeShortUrl: string;
+  originalUrl: string;
+  shortCode: string;
 }
 
 const initialState: UrlState[] = [];

@@ -4,7 +4,7 @@ import urlReducer from './url/urlSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: urlReducer,
+    url: urlReducer,
   },
 });
 

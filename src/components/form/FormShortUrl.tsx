@@ -1,11 +1,16 @@
 'use client';
 import { getShortUrl } from '@/actions/UrlService';
 import { geistMono } from '@/config/fonts';
+import { useAppDispatch, useAppSelector } from '@/store/Index';
+import { addUrlShort } from '@/store/url/urlSlice';
 import { useState } from 'react';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
 
 export const FormShortUrl = () => {
+  const urls = useAppSelector((state) => state.url);
+  const dispatch = useAppDispatch();
+
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -28,7 +33,8 @@ export const FormShortUrl = () => {
     setError('');
     setSubmitting(true);
 
-    const a = await getShortUrl(url);
+    const urlData = await getShortUrl(url);
+    dispatch(addUrlShort(urlData));
     setSubmitting(false);
   };
   return (
@@ -39,6 +45,9 @@ export const FormShortUrl = () => {
           <ButtonShortUrl disabled={!url || !!error || submitting} />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
+        {urls.map((url) => (
+          <p key={url.shortCode}>{url.originalUrl}</p>
+        ))}
       </form>
     </>
   );
