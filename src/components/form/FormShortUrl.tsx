@@ -1,5 +1,5 @@
 'use client';
-import { shortURL } from '@/actions/short-url';
+import { getShortUrl } from '@/actions/UrlService';
 import { geistMono } from '@/config/fonts';
 import { useState } from 'react';
 import { ButtonShortUrl } from './ButtonShortUrl';
@@ -25,11 +25,10 @@ export const FormShortUrl = () => {
       setError('Por favor ingresa una URL válida.');
       return;
     }
-    console.log('hola', { url });
     setError('');
     setSubmitting(true);
 
-    shortURL();
+    const a = await getShortUrl(url);
     setSubmitting(false);
   };
   return (
