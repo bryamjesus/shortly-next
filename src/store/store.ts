@@ -1,22 +1,32 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import persistStore from 'redux-persist/es/persistStore';
+import storage from 'redux-persist/lib/storage';
 import urlReducer from '../features/url/urlSlice';
 
-const store = configureStore({
-  reducer: {
-    url: urlReducer,
-  },
+const rootReducer = combineReducers({
+  url: urlReducer,
 });
 
-// export const makeStore = () => {
-//   return configureStore({
-//     reducer: { url: urlReducer },
-//   });
-// };
+const persistConfig = {
+  key: 'root',
+  storage,
+  // whitelist: ['url'],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
+
+const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export default store;
 
-// export type AppStore = ReturnType<typeof makeStore>;
-// export type RootState = ReturnType<AppStore['getState']>;
-// export type AppDispatch = AppStore['dispatch'];
+export { persistor, store };

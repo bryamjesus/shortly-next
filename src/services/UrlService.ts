@@ -26,11 +26,8 @@ export const getShortUrl = async (url: string): Promise<Data> => {
     throw new Error(`Error en la solicitud: ${response.status}`);
   }
   const { data }: ResponseShortUrl = await response.json();
-  // const { originalUrl, shortCode } = data;
 
   console.log('Respuesta del servidor:', { data });
 
   return data;
-
-  // return { error: '' };
 };
