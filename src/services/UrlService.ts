@@ -1,19 +1,8 @@
 import { FULL_URL } from '@/config/global';
+import { ResponseShortUrl, UrlState } from '@/lib/url.interface';
 
-interface Data {
-  originalUrl: string;
-  shortCode: string;
-}
-
-interface ResponseShortUrl {
-  status: string;
-  message: string;
-  data: Data;
-  code: number;
-}
-
-export const getShortUrl = async (url: string): Promise<Data> => {
-  console.log({ FULL_URL, url });
+export const getShortUrl = async (url: string): Promise<UrlState> => {
+  // console.log({ FULL_URL, url });
 
   const response = await fetch(FULL_URL, {
     method: 'POST',
@@ -27,7 +16,7 @@ export const getShortUrl = async (url: string): Promise<Data> => {
   }
   const { data }: ResponseShortUrl = await response.json();
 
-  console.log('Respuesta del servidor:', { data });
+  // console.log('Respuesta del servidor:', { data });
 
   return data;
 };

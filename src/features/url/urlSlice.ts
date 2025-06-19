@@ -1,9 +1,6 @@
+import { UrlState } from '@/lib/url.interface';
+import { existsShortCode } from '@/utils/valideUrl';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface UrlState {
-  originalUrl: string;
-  shortCode: string;
-}
 
 const initialState: UrlState[] = [];
 
@@ -12,7 +9,10 @@ export const urlSlice = createSlice({
   initialState,
   reducers: {
     addUrlShort: (state, action: PayloadAction<UrlState>) => {
-      state.push(action.payload);
+      const exists = existsShortCode(action.payload.shortCode, state);
+      if (!exists) {
+        state.push(action.payload);
+      }
     },
     resetUrls: () => initialState,
   },
