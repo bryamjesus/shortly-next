@@ -1,8 +1,8 @@
 'use client';
-import { getShortUrl } from '@/actions/UrlService';
+import { getShortUrl } from '@/services/UrlService';
 import { geistMono } from '@/config/fonts';
-import { useAppDispatch, useAppSelector } from '@/store/Index';
-import { addUrlShort } from '@/store/url/urlSlice';
+import { addUrlShort } from '@/features/url/urlSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/storeHooks';
 import { useState } from 'react';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
@@ -35,6 +35,7 @@ export const FormShortUrl = () => {
 
     const urlData = await getShortUrl(url);
     dispatch(addUrlShort(urlData));
+    console.log({ urls });
     setSubmitting(false);
   };
   return (
