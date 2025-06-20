@@ -1,8 +1,9 @@
 'use client';
-import { getShortUrl } from '@/services/UrlService';
 import { geistMono } from '@/config/fonts';
 import { addUrlShort } from '@/features/url/urlSlice';
 import { useAppDispatch, useAppSelector } from '@/hooks/storeHooks';
+import { getShortUrl } from '@/services/UrlService';
+import { isValidUrl } from '@/utils/valideUrl';
 import { useState } from 'react';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
@@ -14,15 +15,6 @@ export const FormShortUrl = () => {
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
-
-  const isValidUrl = (value: string) => {
-    try {
-      new URL(value);
-      return true;
-    } catch {
-      return false;
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,8 +28,10 @@ export const FormShortUrl = () => {
     const urlData = await getShortUrl(url);
     dispatch(addUrlShort(urlData));
     console.log({ urls });
+    setUrl('');
     setSubmitting(false);
   };
+
   return (
     <>
       <form className={`${geistMono.className}`} onSubmit={handleSubmit}>
