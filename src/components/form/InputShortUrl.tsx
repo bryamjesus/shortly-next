@@ -1,11 +1,24 @@
+import { isValidUrl } from '@/utils/valideUrl';
 import { Dispatch, SetStateAction } from 'react';
 
 interface Props {
   url: string;
   setUrl: Dispatch<SetStateAction<string>>;
   error: string;
+  setError: Dispatch<SetStateAction<string>>;
 }
-export const InputShortUrl = ({ url, setUrl, error }: Props) => {
+
+export const InputShortUrl = ({ url, setUrl, error, setError }: Props) => {
+  const handleInputChange = (value: string) => {
+    setUrl(value);
+    if (!isValidUrl(value)) {
+      console.error('ingreso a validacion');
+      setError('Por favor ingresa una URL válida.');
+      return;
+    }
+    setError('');
+  };
+
   return (
     <>
       <input
@@ -14,7 +27,7 @@ export const InputShortUrl = ({ url, setUrl, error }: Props) => {
         }`}
         type="text"
         value={url}
-        onChange={(e) => setUrl(e.target.value)}
+        onChange={(e) => handleInputChange(e.target.value)}
         placeholder="https://mysite.com"
       />
     </>
