@@ -30,7 +30,7 @@ body {
 }
 
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-800 text-white py-4 px-3 rounded transition-all w-full;
+  @apply bg-blue-600 hover:bg-blue-800 text-white py-4 px-3 rounded transition-all w-full cursor-pointer;
   &:disabled {
     @apply bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300;
   }
