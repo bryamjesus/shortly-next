@@ -28,7 +28,8 @@ export const FormShortUrl = () => {
   return (
     <>
       <form className={`${geistMono.className}`} onSubmit={handleSubmit}>
-        <div className="py-3 flex items-center flex-col gap-2 md:flex-row">
+        {/* <div className="py-3 flex items-center flex-col gap-2 md:flex-row"> */}
+        <div className="py-3 flex gap-2 flex-col md:flex-row md:items-start">
           <InputShortUrl
             url={url}
             setUrl={setUrl}
@@ -37,10 +38,12 @@ export const FormShortUrl = () => {
           />
           <ButtonShortUrl disabled={!url || !!error || submitting} />
         </div>
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        {urls.map((url) => (
-          <p key={url.shortCode}>{url.originalUrl}</p>
-        ))}
+
+        <div className="w-full">
+          {urls.map((url) => (
+            <div key={url.shortCode}>{url.originalUrl}</div>
+          ))}
+        </div>
       </form>
     </>
   );

@@ -1,3 +1,5 @@
+import { Scissors } from '../icons/scissors';
+
 interface Props {
   disabled: boolean;
 }
@@ -7,9 +9,9 @@ export const ButtonShortUrl = ({ disabled }: Props) => {
     <>
       <button
         type="submit"
-        className="font-black btn-primary md:basis-1/3"
+        className="flex items-center justify-center font-black btn-primary md:basis-1/3"
         disabled={disabled}>
-        {disabled ? 'Escribe una URL válida' : 'Cortar'}
+        <Scissors className="w-6 h-6 text-gray-800 hover:text-blue-500 transition-colors" />
       </button>
     </>
   );
