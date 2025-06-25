@@ -20,7 +20,7 @@ export const InputShortUrl = ({ url, setUrl, error, setError }: Props) => {
 
   return (
     <>
-      <div className="w-full md:basis-2/3">
+      <div className="w-full md:basis-3/4">
         <input
           className={`w-full py-4 px-3 border bg-gray-200 rounded  ${
             error ? 'border-red-500' : 'border-gray-300'
