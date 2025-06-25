@@ -28,7 +28,6 @@ export const FormShortUrl = () => {
   return (
     <>
       <form className={`${geistMono.className}`} onSubmit={handleSubmit}>
-        {/* <div className="py-3 flex items-center flex-col gap-2 md:flex-row"> */}
         <div className="py-3 flex gap-2 flex-col md:flex-row md:items-start">
           <InputShortUrl
             url={url}
