@@ -1,4 +1,4 @@
-import { Scissors } from '../icons/scissors';
+import { ScissorsIcon } from '../icons/ScissorsIcon';
 
 interface Props {
   disabled: boolean;
@@ -11,7 +11,7 @@ export const ButtonShortUrl = ({ disabled }: Props) => {
         type="submit"
         className="flex items-center justify-center font-black btn-primary md:basis-1/4"
         disabled={disabled}>
-        <Scissors className="w-6 h-6 hover:text-blue-500 transition-colors" />
+        <ScissorsIcon className="w-6 h-6 hover:text-blue-500 transition-colors" />
       </button>
     </>
   );
