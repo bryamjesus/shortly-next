@@ -4,14 +4,14 @@ export const Header = () => {
   return (
     <>
       <header>
-        <div className="py-3">
-          <h2
-            className={`${geistMono.className} font-medium text-4xl md:text-5xl lg:text-6xl`}>
-            Acorta tus enlaces en segundos
-          </h2>
-          <p className="pt-2 text-gray-600 text-[1rem] font-medium dark:text-gray-400">
-            Transforma URLs largas en enlaces cortos y memorables. Totalmente
-            gratuito.
+        <div className="py-8">
+          <h1
+            className={`${geistMono.className} font-medium text-4xl sm:text-5xl lg:text-6xl xl:text-8xl`}>
+            Acorta y comparte tus enlaces en segundos.
+          </h1>
+          <p className="max-w-(--breakpoint-sm) pt-2 text-gray-600 text-lg/7 font-medium dark:text-gray-400">
+            Acorta URLs largas en un clic y compártelas al instante. Haz que tus
+            enlaces luzcan limpios y fáciles de recordar.
           </p>
         </div>
       </header>
