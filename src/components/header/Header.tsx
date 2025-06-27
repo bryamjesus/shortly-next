@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <>
       <header>
-        <div className="py-8">
+        <div className="py-15">
           <h1
             className={`${geistMono.className} font-medium text-4xl sm:text-5xl lg:text-6xl xl:text-8xl`}>
             Acorta y comparte tus enlaces en segundos.
