@@ -10,7 +10,7 @@ export default function DashboardLayout({
     <>
       <NavBar />
       <main>
-        <div className="container">{children}</div>
+        <div className="">{children}</div>
       </main>
       <Footer />
     </>
