@@ -4,6 +4,7 @@ import { addUrlShort } from '@/features/url/urlSlice';
 import { useAppDispatch, useAppSelector } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
 import { useState } from 'react';
+import { ShortUrlModal } from '../modal/ShortUrlModal';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
 
@@ -15,6 +16,9 @@ export const FormShortUrl = () => {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
+  const [urlShort, setUrlShort] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -22,7 +26,9 @@ export const FormShortUrl = () => {
     const urlData = await getShortUrl(url);
     dispatch(addUrlShort(urlData));
     setUrl('');
+    setUrlShort(urlData.shortCode);
     setSubmitting(false);
+    setModalOpen(true);
   };
 
   return (
@@ -50,6 +56,11 @@ export const FormShortUrl = () => {
               ))}
             </div>
           </form>
+          <ShortUrlModal
+            isOpen={modalOpen}
+            shortUrl={urlShort}
+            onClose={() => setModalOpen(false)}
+          />
         </div>
       </main>
     </>
