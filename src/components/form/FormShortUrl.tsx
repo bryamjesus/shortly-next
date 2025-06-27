@@ -30,7 +30,7 @@ export const FormShortUrl = () => {
       <main>
         <form
           id="formUrl"
-          className={`${geistMono.className} container`}
+          className={`${geistMono.className} container py-20`}
           onSubmit={handleSubmit}>
           <div className="py-3 flex gap-2 flex-col md:flex-row md:items-start">
             <InputShortUrl
