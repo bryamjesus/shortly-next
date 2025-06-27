@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const Footer = () => {
   return (
-    <div className="bg-(--primary) text-(--light) flex w-full justify-center text-xs py-3">
+    <div className="border-t border-general text-(--dark) flex w-full justify-center text-sm/6 py-6">
       <Link href="/">
         <span className={`antialiased font-bold`}>Shortly </span>
         <span>| Link </span>
