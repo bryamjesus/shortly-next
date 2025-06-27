@@ -37,7 +37,7 @@ body {
 }
 
 .container {
-  @apply w-[90%] max-w-7xl mx-auto py-3 px-0;
+  @apply w-[90%] max-w-7xl mx-auto px-0;
 }
 
 .btn-primary {
@@ -47,6 +47,6 @@ body {
   }
 }
 
-.border-general{
-  @apply border-black/5 dark:border-white/10
+.border-general {
+  @apply border-black/5 dark:border-white/10;
 }
