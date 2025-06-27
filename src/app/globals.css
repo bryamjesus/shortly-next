@@ -46,7 +46,7 @@ body {
 }
 
 .btn-primary {
-  @apply text-center bg-(--primary) hover:bg-blue-600 text-white py-4 px-3 transition-all w-full cursor-pointer rounded-2xl;
+  @apply text-center bg-(--primary) hover:bg-blue-600 text-white py-4 px-3 transition-all w-full cursor-pointer rounded-xl;
   &:disabled {
     @apply bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300;
   }
