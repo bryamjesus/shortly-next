@@ -56,12 +56,12 @@ export const FormShortUrl = () => {
               ))}
             </div>
           </form>
-          <ShortUrlModal
-            isOpen={modalOpen}
-            shortUrl={urlShort}
-            onClose={() => setModalOpen(false)}
-          />
         </div>
+        <ShortUrlModal
+          isOpen={modalOpen}
+          shortUrl={urlShort}
+          onClose={() => setModalOpen(false)}
+        />
       </main>
     </>
   );
