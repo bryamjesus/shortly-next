@@ -56,7 +56,7 @@ export const FormShortUrl = () => {
         </div>
         <ShortUrlModal
           isOpen={modalOpen}
-          shortUrl={urlShort}
+          codeUrl={urlShort}
           onClose={() => setModalOpen(false)}
         />
       </main>

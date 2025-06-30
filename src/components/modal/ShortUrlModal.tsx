@@ -1,13 +1,15 @@
 import { ModalPropsUrl } from '@/lib/modal.interface';
 import { copyToClipboard } from '@/utils/clipboard';
+import { getFullShortUrl } from '@/utils/valideUrl';
 import { useState } from 'react';
 import Modal from './Modal';
 
-export const ShortUrlModal = ({ shortUrl, isOpen, onClose }: ModalPropsUrl) => {
+export const ShortUrlModal = ({ codeUrl, isOpen, onClose }: ModalPropsUrl) => {
   const [copied, setCopied] = useState(false);
+  const { urlComplete, urlModal } = getFullShortUrl(codeUrl);
 
   const handleCopy = async () => {
-    const success = await copyToClipboard(shortUrl);
+    const success = await copyToClipboard(urlComplete);
     setCopied(success);
     setTimeout(() => setCopied(false), 1500);
     if (success) {
@@ -17,7 +19,7 @@ export const ShortUrlModal = ({ shortUrl, isOpen, onClose }: ModalPropsUrl) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="¡Tu URL Acortada!">
-      <p className="mb-4 break-words">{shortUrl}</p>
+      <p className="mb-3 break-words text-balance">{urlModal}</p>
       <button
         onClick={handleCopy}
         className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mr-2">

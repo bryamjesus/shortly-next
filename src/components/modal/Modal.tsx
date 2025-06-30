@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-white/3 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-white/3 backdrop-blur-sm flex items-center justify-center z-50 p-3"
       onClick={onClose}>
       <div
         ref={modalRef}
