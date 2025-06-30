@@ -19,17 +19,20 @@ export const ShortUrlModal = ({ codeUrl, isOpen, onClose }: ModalPropsUrl) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="¡Tu URL Acortada!">
-      <p className="mb-3 break-words text-balance">{urlModal}</p>
-      <button
-        onClick={handleCopy}
-        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mr-2">
-        {copied ? '¡Copiado!' : 'Copiar URL'}
-      </button>
-      <button
-        onClick={onClose}
-        className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">
-        Cerrar
-      </button>
+      <p>Copia el siguiente link</p>
+      <div className="bg-blue-100 w-full py-4 mt-8 rounded-xl flex flex-col justify-center items-center gap-2">
+        <p className="break-words text-balance">{urlModal}</p>
+        <button
+          onClick={handleCopy}
+          className="text-center bg-(--primary) hover:bg-blue-600 text-white py-2 px-4 transition-all cursor-pointer rounded-xl">
+          {copied ? '¡Copiado!' : 'Copiar URL'}
+        </button>
+        {/* <button
+          onClick={onClose}
+          className="text-center bg-(--error) hover:bg-red-600 text-white py-2 px-4 transition-all cursor-pointer rounded-xl">
+          Cerrar
+        </button> */}
+      </div>
     </Modal>
   );
 };
