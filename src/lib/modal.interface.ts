@@ -6,7 +6,7 @@ export interface ModalProps {
 }
 
 export interface ModalPropsUrl {
-  shortUrl: string;
+  codeUrl: string;
   isOpen: boolean;
   onClose: () => void;
 }
