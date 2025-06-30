@@ -35,10 +35,7 @@ export const FormShortUrl = () => {
     <>
       <main id="formUrl">
         <div className={`${geistMono.className} container py-20`}>
-          <h2
-            className={`${geistSans.className} text-[2.5rem]/10 font-medium tracking-tighter text-balance pb-4`}>
-            Acortar.
-          </h2>
+          <h2 className={`${geistSans.className} subtitle pb-4`}>Acortar</h2>
           <form onSubmit={handleSubmit}>
             <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
               <InputShortUrl
