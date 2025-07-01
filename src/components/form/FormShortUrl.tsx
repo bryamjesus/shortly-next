@@ -1,11 +1,12 @@
 'use client';
-import { subTitleFont } from '@/config/fonts';
+
 import { addUrlShort } from '@/features/url/urlSlice';
 import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
 import { useState } from 'react';
 import { ShortUrlModal } from '../modal/ShortUrlModal';
 import { Container } from '../ui/container/Container';
+import { SubTitle } from '../ui/title/SubTitle';
 import { UrlGrid } from '../urls/UrlGrid';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
@@ -36,7 +37,7 @@ export const FormShortUrl = () => {
     <>
       <main id="formUrl" className="py-20 bg-white">
         <Container>
-          <h2 className={`${subTitleFont.className} subtitle pb-4`}>Acortar</h2>
+          <SubTitle subtitle="Acortar" />
           <form onSubmit={handleSubmit}>
             <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
               <InputShortUrl
