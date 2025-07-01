@@ -15,7 +15,7 @@ export const Header = () => {
             enlaces luzcan limpios y fáciles de recordar.
           </p>
           <Link
-            className="inline-block btn-primary my-10 max-w-[375px] text-sm/6"
+            className="inline-block btn-primary my-10 max-w-[375px] text-sm/6 font-medium"
             href={'#formUrl'}>
             Acortar
           </Link>

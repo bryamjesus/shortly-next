@@ -1,15 +1,15 @@
 'use client';
 import { geistMono, geistSans } from '@/config/fonts';
 import { addUrlShort } from '@/features/url/urlSlice';
-import { useAppDispatch, useAppSelector } from '@/hooks/storeHooks';
+import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
 import { useState } from 'react';
 import { ShortUrlModal } from '../modal/ShortUrlModal';
+import { UrlGrid } from '../urls/UrlGrid';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
 
 export const FormShortUrl = () => {
-  const urls = useAppSelector((state) => state.url);
   const dispatch = useAppDispatch();
 
   const [url, setUrl] = useState('');
@@ -33,8 +33,8 @@ export const FormShortUrl = () => {
 
   return (
     <>
-      <main id="formUrl">
-        <div className={`${geistMono.className} container py-20`}>
+      <main id="formUrl" className="py-20 bg-white">
+        <div className={`${geistMono.className} container`}>
           <h2 className={`${geistSans.className} subtitle pb-4`}>Acortar</h2>
           <form onSubmit={handleSubmit}>
             <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
@@ -46,14 +46,9 @@ export const FormShortUrl = () => {
               />
               <ButtonShortUrl disabled={!url || !!error || submitting} />
             </div>
-
-            <div className="w-full">
-              {urls.map((url) => (
-                <div key={url.shortCode}>{url.originalUrl}</div>
-              ))}
-            </div>
           </form>
         </div>
+        <UrlGrid />
         <ShortUrlModal
           isOpen={modalOpen}
           codeUrl={urlShort}
