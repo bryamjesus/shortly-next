@@ -5,6 +5,7 @@ import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
 import { useState } from 'react';
 import { ShortUrlModal } from '../modal/ShortUrlModal';
+import { Container } from '../ui/container/Container';
 import { UrlGrid } from '../urls/UrlGrid';
 import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
@@ -34,7 +35,7 @@ export const FormShortUrl = () => {
   return (
     <>
       <main id="formUrl" className="py-20 bg-white">
-        <div className={`container`}>
+        <Container>
           <h2 className={`${subTitleFont.className} subtitle pb-4`}>Acortar</h2>
           <form onSubmit={handleSubmit}>
             <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
@@ -47,7 +48,7 @@ export const FormShortUrl = () => {
               <ButtonShortUrl disabled={!url || !!error || submitting} />
             </div>
           </form>
-        </div>
+        </Container>
         <UrlGrid />
         <ShortUrlModal
           isOpen={modalOpen}

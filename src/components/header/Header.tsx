@@ -1,11 +1,12 @@
 import { LinkButton } from '../ui/button/LinkButton';
+import { Container } from '../ui/container/Container';
 import { Title } from '../ui/title/Title';
 
 export const Header = () => {
   return (
     <>
       <header className={`border-b border-general`}>
-        <div className="container py-20">
+        <Container className="py-20">
           <Title
             title="Acorta y comparte tus enlaces en segundos."
             className="font-medium"
@@ -19,7 +20,7 @@ export const Header = () => {
             text="Acortar"
             className="max-w-[375px]"
           />
-        </div>
+        </Container>
       </header>
     </>
   );
