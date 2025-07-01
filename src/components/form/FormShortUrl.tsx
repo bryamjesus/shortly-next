@@ -35,7 +35,7 @@ export const FormShortUrl = () => {
 
   return (
     <>
-      <main id="formUrl" className="py-20 bg-white">
+      <section id="formUrl" className="py-20 bg-white">
         <Container>
           <SubTitle subtitle="Acortar" />
           <form onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ export const FormShortUrl = () => {
           codeUrl={urlShort}
           onClose={() => setModalOpen(false)}
         />
-      </main>
+      </section>
     </>
   );
 };
