@@ -1,5 +1,5 @@
 'use client';
-import { geistMono, geistSans } from '@/config/fonts';
+import { subTitleFont } from '@/config/fonts';
 import { addUrlShort } from '@/features/url/urlSlice';
 import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
@@ -34,8 +34,8 @@ export const FormShortUrl = () => {
   return (
     <>
       <main id="formUrl" className="py-20 bg-white">
-        <div className={`${geistMono.className} container`}>
-          <h2 className={`${geistSans.className} subtitle pb-4`}>Acortar</h2>
+        <div className={`container`}>
+          <h2 className={`${subTitleFont.className} subtitle pb-4`}>Acortar</h2>
           <form onSubmit={handleSubmit}>
             <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
               <InputShortUrl

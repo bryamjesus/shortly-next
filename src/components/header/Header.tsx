@@ -1,24 +1,24 @@
-import { geistMono } from '@/config/fonts';
-import Link from 'next/link';
+import { LinkButton } from '../ui/button/LinkButton';
+import { Title } from '../ui/title/Title';
 
 export const Header = () => {
   return (
     <>
-      <header className={`${geistMono.className} border-b border-general`}>
+      <header className={`border-b border-general`}>
         <div className="container py-20">
-          <h1
-            className={`font-medium text-4xl sm:text-5xl lg:text-6xl xl:text-8xl`}>
-            Acorta y comparte tus enlaces en segundos.
-          </h1>
+          <Title
+            title="Acorta y comparte tus enlaces en segundos."
+            className="font-medium"
+          />
           <p className="max-w-(--breakpoint-sm) pt-6 text-gray-600 text-lg/7 font-medium dark:text-gray-400">
             Acorta URLs largas en un clic y compártelas al instante. Haz que tus
             enlaces luzcan limpios y fáciles de recordar.
           </p>
-          <Link
-            className="inline-block btn-primary my-10 max-w-[375px] text-sm/6 font-medium"
-            href={'#formUrl'}>
-            Acortar
-          </Link>
+          <LinkButton
+            href="#formUrl"
+            text="Acortar"
+            className="max-w-[375px]"
+          />
         </div>
       </header>
     </>
