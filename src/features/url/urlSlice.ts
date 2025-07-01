@@ -11,7 +11,7 @@ export const urlSlice = createSlice({
     addUrlShort: (state, action: PayloadAction<UrlState>) => {
       const exists = existsShortCode(action.payload.shortCode, state);
       if (!exists) {
-        state.push(action.payload);
+        state.unshift(action.payload);
       }
     },
     resetUrls: () => initialState,
