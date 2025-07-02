@@ -1,7 +1,7 @@
 import { Providers } from '@/components/providers/Providers';
-import type { Metadata } from 'next';
-import './globals.css';
 import { generalFont } from '@/config/fonts';
+import type { Metadata } from 'next';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Shortly',
