@@ -14,7 +14,7 @@ export const UrlGrid = () => {
       {urls && urls.length > 0 && (
         <Container className="pt-10">
           <SubTitle subtitle="Shortly Links" />
-          <div className="w-full flex flex-col gap-3">
+          <div className="w-full flex flex-col gap-5">
             {urls.map(({ originalUrl, shortCode }) => (
               <UrlGridItem
                 key={shortCode}

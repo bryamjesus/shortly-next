@@ -18,8 +18,8 @@ export const UrlGridItem = ({ originalUrl, shortCode }: UrlState) => {
   };
 
   return (
-    <div className={`w-full bg-(--background) p-5 rounded-xl`}>
-      <div className="flex flex-col gap-4 md:flex-row">
+    <div className={`w-full bg-(--background) px-4 py-7 rounded-xl md:py-5`}>
+      <div className="flex flex-col gap-6 md:flex-row">
         <div className="flex flex-col gap-3 md:basis-3/4 min-w-0">
           <Link
             href={originalUrl}
