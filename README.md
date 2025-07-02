@@ -61,3 +61,40 @@ Asegúrate de tener instalado lo siguiente:
     # o si usas yarn
     # yarn install
     ```
+
+¡Claro\! Aquí tienes las secciones de "Estructura del Proyecto" y "Contribuciones" listas para que las copies y pegues en tu `README.md`.
+
+---
+
+### Estructura del Proyecto
+
+La estructura del proyecto sigue las convenciones de Next.js (App Router) y está organizada para una clara separación de responsabilidades:
+
+```
+shortly-next/
+├── app/
+├── components/
+│   ├── ui/
+│   └── urls/
+├── hooks/
+├── lib/
+├── public/
+├── services/
+├── store/
+│   └── url/
+├── styles/
+├── types/
+└── utils/
+```
+
+### Contribuciones
+
+¡Las contribuciones son bienvenidas\! Si deseas mejorar este proyecto, por favor sigue estos pasos:
+
+1.  Haz un `fork` de este repositorio.
+2.  Crea una nueva rama para tu característica o corrección de bug (`git checkout -b feature/mi-nueva-funcionalidad`).
+3.  Realiza tus cambios y commitea (`git commit -m 'feat: Añadir nueva funcionalidad'`).
+4.  Haz `push` a tu rama (`git push origin feature/mi-nueva-funcionalidad`).
+5.  Abre un `Pull Request` detallando tus cambios.
+
+---
