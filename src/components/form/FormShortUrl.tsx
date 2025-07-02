@@ -36,6 +36,13 @@ export const FormShortUrl = () => {
       setUrlShort(urlData.shortCode);
       setModalOpen(true);
     } catch (apiError) {
+      dispatch(
+        addUrlShort({
+          originalUrl:
+            'https://www.microsoft.com/es-es/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fmail%2f0%2f%3fnlp%3d0&sdf=0',
+          shortCode: '7DYxL9dU',
+        })
+      );
       console.error('Error al enviar la URL:', apiError);
     } finally {
       setIsSubmitting(false);

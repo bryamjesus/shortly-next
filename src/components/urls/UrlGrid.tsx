@@ -1,8 +1,8 @@
 'use client';
-import { secondFont } from '@/config/fonts';
 import { useAppSelector } from '@/hooks/storeHooks';
 import { getBaseHostClient, getBaseUrlClient } from '@/utils/getBaseUrlClient';
 import { Container } from '../ui/container/Container';
+import { SubTitle } from '../ui/title/SubTitle';
 import { UrlGridItem } from './UrlGridItem';
 
 export const UrlGrid = () => {
@@ -13,12 +13,14 @@ export const UrlGrid = () => {
     <>
       {urls && urls.length > 0 && (
         <Container className="pt-10">
-          <h2 className={`${secondFont.className} subtitle pb-4`}>
-            Shortly Links
-          </h2>
-          <div className="w-full flex flex-col gap-3">
-            {urls.map((url) => (
-              <UrlGridItem key={url.shortCode} url={url} />
+          <SubTitle subtitle="Shortly Links" />
+          <div className="w-full flex flex-col gap-5">
+            {urls.map(({ originalUrl, shortCode }) => (
+              <UrlGridItem
+                key={shortCode}
+                originalUrl={originalUrl}
+                shortCode={shortCode}
+              />
             ))}
           </div>
         </Container>
