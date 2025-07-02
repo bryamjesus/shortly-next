@@ -1,5 +1,5 @@
-import { Footer } from '@/components/footer/Footer';
 import { NavBar } from '@/components/navbar/NavBar';
+import { Footer } from '@/components/ui/footer/Footer';
 
 export default function DashboardLayout({
   children,

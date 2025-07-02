@@ -5,7 +5,9 @@ export default function MainPage() {
   return (
     <>
       <Header />
-      <FormShortUrl />
+      <main>
+        <FormShortUrl />
+      </main>
     </>
   );
 }
