@@ -1,8 +1,8 @@
 'use client';
 
-import { addUrlShort } from '@/features/url/urlSlice';
 import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
+import { addUrlShort } from '@/store/url/urlSlice';
 import { useState } from 'react';
 import { Container } from '../ui/container/Container';
 import { ShortUrlModal } from '../ui/modal/ShortUrlModal';
