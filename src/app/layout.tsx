@@ -1,7 +1,7 @@
 import { Providers } from '@/components/providers/Providers';
-import { generalFont } from '@/config/fonts';
-import type { Metadata } from 'next';
+import { principalFont } from '@/config/fonts';
 import '@/styles/globals.css';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Shortly',
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased min-h-screen ${generalFont.className}`}>
+      <body className={`antialiased min-h-screen ${principalFont.className}`}>
         <Providers>{children}</Providers>
       </body>
     </html>
