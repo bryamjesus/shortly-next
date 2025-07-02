@@ -1,24 +1,54 @@
+import { secondFont } from '@/config/fonts';
 import { UrlState } from '@/lib/url.interface';
+import { copyToClipboard } from '@/utils/clipboard';
 import { getBaseHostClient } from '@/utils/getBaseUrlClient';
 import Link from 'next/link';
+import { useState } from 'react';
+import { CopyIcon } from '../ui/icons/CopyIcon';
 
-interface Props {
-  url: UrlState;
-}
+export const UrlGridItem = ({ originalUrl, shortCode }: UrlState) => {
+  const [copied, setCopied] = useState(false);
 
-export const UrlGridItem = ({ url }: Props) => {
+  const shortUrlHref = `${getBaseHostClient()}/${shortCode}`;
+
+  const handleCopy = async () => {
+    const success = await copyToClipboard(shortUrlHref);
+    setCopied(success);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
   return (
-    <>
-      <div className={`w-full bg-(--background) p-5 rounded-xl`}>
-        <div className="flex flex-col">
+    <div className={`w-full bg-(--background) p-5 rounded-xl`}>
+      <div className="flex flex-col gap-4 md:flex-row">
+        <div className="flex flex-col gap-3 md:basis-3/4 min-w-0">
           <Link
-            href={url.originalUrl}
-            className="text-xl text-(--primary) cursor-pointer">{`${getBaseHostClient()}/${
-            url.shortCode
-          }`}</Link>
-          <Link href={url.originalUrl}>{url.originalUrl}</Link>
+            href={originalUrl}
+            className="text-lg text-(--primary) font-medium whitespace-nowrap overflow-hidden text-ellipsis block">
+            {shortUrlHref}
+          </Link>
+          <Link
+            href={originalUrl}
+            className={`inline-block w-full ${secondFont.className} text-sm whitespace-nowrap overflow-hidden text-ellipsis `}>
+            {originalUrl}
+          </Link>
+        </div>
+        <div className="md:basis-1/4">
+          <button
+            onClick={handleCopy}
+            className={`${secondFont.className} text-center bg-(--primary) hover:bg-blue-600 text-white py-1 px-6 transition-all cursor-pointer rounded-xl`}>
+            <div className="flex justify-center items-center gap-1">
+              {copied ? (
+                '¡Copiado!'
+              ) : (
+                <>
+                  <CopyIcon className="w-4 h-4" color="#f9fafb" />
+                  Copiar
+                </>
+              )}
+            </div>
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
