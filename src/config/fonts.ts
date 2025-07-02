@@ -5,12 +5,12 @@ import {
   Montserrat_Alternates,
 } from 'next/font/google';
 
-export const generalFont = Geist_Mono({
+export const principalFont = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
 
-export const subTitleFont = Geist({
+export const secondFont = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 });

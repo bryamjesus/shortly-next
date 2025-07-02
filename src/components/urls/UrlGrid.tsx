@@ -1,5 +1,5 @@
 'use client';
-import { subTitleFont } from '@/config/fonts';
+import { secondFont } from '@/config/fonts';
 import { useAppSelector } from '@/hooks/storeHooks';
 import { getBaseHostClient, getBaseUrlClient } from '@/utils/getBaseUrlClient';
 import { Container } from '../ui/container/Container';
@@ -13,7 +13,7 @@ export const UrlGrid = () => {
     <>
       {urls && urls.length > 0 && (
         <Container className="pt-10">
-          <h2 className={`${subTitleFont.className} subtitle pb-4`}>
+          <h2 className={`${secondFont.className} subtitle pb-4`}>
             Shortly Links
           </h2>
           <div className="w-full flex flex-col gap-3">
