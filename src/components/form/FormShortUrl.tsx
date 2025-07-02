@@ -4,33 +4,42 @@ import { useAppDispatch } from '@/hooks/storeHooks';
 import { getShortUrl } from '@/services/UrlService';
 import { addUrlShort } from '@/store/url/urlSlice';
 import { useState } from 'react';
+import { Button } from '../ui/button/Button';
 import { Container } from '../ui/container/Container';
+import { ScissorsIcon } from '../ui/icons/ScissorsIcon';
 import { ShortUrlModal } from '../ui/modal/ShortUrlModal';
 import { SubTitle } from '../ui/title/SubTitle';
 import { UrlGrid } from '../urls/UrlGrid';
-import { ButtonShortUrl } from './ButtonShortUrl';
 import { InputShortUrl } from './InputShortUrl';
 
 export const FormShortUrl = () => {
   const dispatch = useAppDispatch();
 
   const [url, setUrl] = useState('');
-  const [error, setError] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-
+  const [validationError, setValidationError] = useState('');
   const [urlShort, setUrlShort] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const isButtonDisabled = !url || !!validationError || isSubmitting;
+  const scissorsIconColor = isButtonDisabled ? '#1f2937' : '#f9fafb';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setSubmitting(true);
-    const urlData = await getShortUrl(url);
-    dispatch(addUrlShort(urlData));
-    setUrl('');
-    setUrlShort(urlData.shortCode);
-    setSubmitting(false);
-    setModalOpen(true);
+    setIsSubmitting(true);
+    setValidationError('');
+    try {
+      const urlData = await getShortUrl(url);
+      dispatch(addUrlShort(urlData));
+      setUrl('');
+      setUrlShort(urlData.shortCode);
+      setModalOpen(true);
+    } catch (apiError) {
+      console.error('Error al enviar la URL:', apiError);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,10 +52,18 @@ export const FormShortUrl = () => {
               <InputShortUrl
                 url={url}
                 setUrl={setUrl}
-                error={error}
-                setError={setError}
+                error={validationError}
+                setError={setValidationError}
               />
-              <ButtonShortUrl disabled={!url || !!error || submitting} />
+              <Button
+                type="submit"
+                disabled={isButtonDisabled}
+                className="md:basis-1/4">
+                <ScissorsIcon
+                  className="w-6 h-6 hover:text-blue-500 transition-colors"
+                  color={`${scissorsIconColor}`}
+                />
+              </Button>
             </div>
           </form>
         </Container>

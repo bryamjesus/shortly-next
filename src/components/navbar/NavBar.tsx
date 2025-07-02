@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { LinkIcon } from '../icons/LinkIcon';
 import { Container } from '../ui/container/Container';
+import { LinkIcon } from '../ui/icons/LinkIcon';
 
 export const NavBar = () => {
   return (
