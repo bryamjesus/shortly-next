@@ -62,11 +62,9 @@ Asegúrate de tener instalado lo siguiente:
     # yarn install
     ```
 
-¡Claro\! Aquí tienes las secciones de "Estructura del Proyecto" y "Contribuciones" listas para que las copies y pegues en tu `README.md`.
-
 ---
 
-### Estructura del Proyecto
+## Estructura del Proyecto
 
 La estructura del proyecto sigue las convenciones de Next.js (App Router) y está organizada para una clara separación de responsabilidades:
 
@@ -87,7 +85,7 @@ shortly-next/
 └── utils/
 ```
 
-### Contribuciones
+## Contribuciones
 
 ¡Las contribuciones son bienvenidas\! Si deseas mejorar este proyecto, por favor sigue estos pasos:
 
