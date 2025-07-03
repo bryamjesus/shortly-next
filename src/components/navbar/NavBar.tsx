@@ -9,7 +9,9 @@ export const NavBar = () => {
         <Container className="h-full flex items-center">
           <Link href="/" className="flex items-center gap-0.5">
             <LinkIcon className="w-8 h-8" color="#1f2937" />
-            <h1 className="font-black text-xl ">Shortly</h1>
+            <h1 className="font-black text-xl text-(--black) dark:text-(--white)">
+              Shortly
+            </h1>
           </Link>
         </Container>
       </nav>
