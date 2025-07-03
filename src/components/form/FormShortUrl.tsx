@@ -22,7 +22,7 @@ export const FormShortUrl = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const isButtonDisabled = !url || !!validationError || isSubmitting;
-  const scissorsIconColor = isButtonDisabled ? '#1f2937' : '#f9fafb';
+  const scissorsIconColor = isButtonDisabled ? 'var(--icon-link-color)' : 'var(--white)';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ export const FormShortUrl = () => {
 
   return (
     <>
-      <section id="formUrl" className="py-20 bg-white">
+      <section id="formUrl" className="py-20 bg-(--light)">
         <Container>
           <SubTitle subtitle="Acortar" />
           <form onSubmit={handleSubmit}>

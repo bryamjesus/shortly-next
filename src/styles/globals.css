@@ -1,20 +1,17 @@
 @import 'tailwindcss';
 
 :root {
-  /* --primary: #4f46e5; */
-  /* --primary: #00abe4; */
-  --primary: #3b82f6;
-  --primary-dark: #4338ca;
-  --accent: #ec4899;
+  --white: #fff;
+  --gray-200: #e5e7eb;
+  --gray-400: #99a1af;
+  --gray-600: #4a5565;
+  --gray-800: #2c3035;
   --dark: #1f2937;
-  --light: #f9fafb;
-
-  /* --background: #ffffff; */
-  --background: #f3f4f6;
-  --new-background: #f9f9f9;
-  --foreground: #171717;
-
-  --error: #fb2c36;
+  --dark-200: #040711;
+  --blue: #3b82f6;
+  --blue-hover: #155dfc;
+  --red: #fb2c36;
+  --icon-link-color: #1f1f1f;
 }
 
 @theme inline {
@@ -24,27 +21,30 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background: var(--white);
   color: var(--dark);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --icon-link-color: #fff;
+  }
+  body {
+    background: var(--dark-200);
+    color: var(--white);
+  }
+}
+
 .btn-primary {
-  @apply text-center bg-(--primary) hover:bg-blue-600 text-white py-4 px-3 transition-all w-full cursor-pointer rounded-xl;
+  @apply text-center bg-(--blue) hover:bg-(--blue-hover) text-white py-4 px-3 transition-all w-full cursor-pointer rounded-xl;
   &:disabled {
-    @apply bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300;
+    @apply bg-(--gray-200) text-gray-500 cursor-not-allowed hover:bg-gray-300 dark:bg-(--gray-800);
   }
 }
 
