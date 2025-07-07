@@ -18,16 +18,19 @@ export const UrlGridItem = ({ originalUrl, shortCode }: UrlState) => {
   };
 
   return (
-    <div className={`w-full bg-(--gray-200) px-4 py-7 rounded-xl md:py-5 dark:bg-(--gray-800)`}>
+    <div
+      className={`w-full bg-(--gray-200) px-4 py-7 rounded-xl md:py-5 dark:bg-(--gray-800)`}>
       <div className="flex flex-col gap-6 md:flex-row">
         <div className="flex flex-col gap-3 md:basis-3/4 min-w-0">
           <Link
             href={originalUrl}
+            target="_blank"
             className="text-lg text-(--blue) font-medium whitespace-nowrap overflow-hidden text-ellipsis block">
             {shortUrlHref}
           </Link>
           <Link
             href={originalUrl}
+            target="_blank"
             className={`inline-block w-full ${secondFont.className} text-sm whitespace-nowrap overflow-hidden text-ellipsis `}>
             {originalUrl}
           </Link>
