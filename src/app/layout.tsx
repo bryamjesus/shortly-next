@@ -6,6 +6,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Shortly',
   description: 'Acortador de links',
+  icons:{
+    
+  }
 };
 
 export default function RootLayout({

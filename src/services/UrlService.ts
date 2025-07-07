@@ -20,3 +20,21 @@ export const getShortUrl = async (url: string): Promise<UrlState> => {
 
   return data;
 };
+
+export const getShortenedUrlByCode = async (shortCode: string) => {
+  console.log(`${FULL_URL}/${shortCode}`);
+  try {
+    const response = await fetch(`${FULL_URL}/${shortCode}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.status}`);
+    }
+    const { data }: ResponseShortUrl = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error al obtener URL por código:', error);
+    throw new Error('No se pudo obtener la URL por código.');
+  }
+};
