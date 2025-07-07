@@ -6,9 +6,7 @@ interface ShortCodePageProps {
   params: { shortCode: string };
 }
 export default async function ShortCodePage({ params }: ShortCodePageProps) {
-  const { shortCode } = params;
-
-  debugger;
+  const { shortCode } = await params;
 
   if (!shortCode) {
     redirect('/');
@@ -16,7 +14,6 @@ export default async function ShortCodePage({ params }: ShortCodePageProps) {
 
   try {
     const urlEntry = await getShortenedUrlByCode(shortCode);
-    console.log({ shortCode, urlEntry });
 
     if (urlEntry && urlEntry.originalUrl) {
       return (
