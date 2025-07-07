@@ -1,13 +1,31 @@
 'use client';
-import { UrlState } from '@/lib/url.interface';
 import { useRouter } from 'next/navigation';
 
 interface Props {
-  urlEntry: UrlState;
+  url: string;
 }
 
-export const ClientRedirect = ({ urlEntry }: Props) => {
+export const ClientRedirect = ({ url }: Props) => {
   const router = useRouter();
-  router.push(urlEntry.originalUrl);
+  router.push(url);
   return <></>;
 };
+
+// 'use client';
+
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/navigation';
+
+// interface Props {
+//   url: string;
+// }
+
+// export const ClientRedirect = ({ url }: Props) => {
+//   const router = useRouter();
+
+//   useEffect(() => {
+//     router.replace(url);
+//   }, [url, router]);
+
+//   return null;
+// };
