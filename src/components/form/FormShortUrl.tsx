@@ -22,7 +22,9 @@ export const FormShortUrl = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const isButtonDisabled = !url || !!validationError || isSubmitting;
-  const scissorsIconColor = isButtonDisabled ? 'var(--icon-link-color)' : 'var(--white)';
+  const scissorsIconColor = isButtonDisabled
+    ? 'var(--icon-link-color)'
+    : 'var(--white)';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,37 +52,35 @@ export const FormShortUrl = () => {
   };
 
   return (
-    <>
-      <section id="formUrl" className="py-20 bg-(--light)">
-        <Container>
-          <SubTitle subtitle="Acortar" />
-          <form onSubmit={handleSubmit}>
-            <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
-              <InputShortUrl
-                url={url}
-                setUrl={setUrl}
-                error={validationError}
-                setError={setValidationError}
+    <section id="formUrl" className="py-20 bg-(--light)">
+      <Container>
+        <SubTitle subtitle="Acortar" />
+        <form onSubmit={handleSubmit}>
+          <div className="py-3 flex gap-3 flex-col md:flex-row md:items-start">
+            <InputShortUrl
+              url={url}
+              setUrl={setUrl}
+              error={validationError}
+              setError={setValidationError}
+            />
+            <Button
+              type="submit"
+              disabled={isButtonDisabled}
+              className="md:basis-1/4">
+              <ScissorsIcon
+                className="w-6 h-6 hover:text-blue-500 transition-colors"
+                color={`${scissorsIconColor}`}
               />
-              <Button
-                type="submit"
-                disabled={isButtonDisabled}
-                className="md:basis-1/4">
-                <ScissorsIcon
-                  className="w-6 h-6 hover:text-blue-500 transition-colors"
-                  color={`${scissorsIconColor}`}
-                />
-              </Button>
-            </div>
-          </form>
-        </Container>
-        <UrlGrid />
-        <ShortUrlModal
-          isOpen={modalOpen}
-          codeUrl={urlShort}
-          onClose={() => setModalOpen(false)}
-        />
-      </section>
-    </>
+            </Button>
+          </div>
+        </form>
+      </Container>
+      <UrlGrid />
+      <ShortUrlModal
+        isOpen={modalOpen}
+        codeUrl={urlShort}
+        onClose={() => setModalOpen(false)}
+      />
+    </section>
   );
 };

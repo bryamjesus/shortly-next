@@ -1,0 +1,19 @@
+{
+  "feature": [
+    {
+      "id": 1,
+      "name": "Instantáneo",
+      "description": "Acorta tus URLs en menos de un segundo. No hay tiempo de espera."
+    },
+    {
+      "id": 2,
+      "name": "Seguro",
+      "description": "Todos los enlaces son verificados para proteger contra malware."
+    },
+    {
+      "id": 3,
+      "name": "Sin Límites",
+      "description": "Acorta tantos enlaces como necesites, completamente gratis."
+    }
+  ]
+}
