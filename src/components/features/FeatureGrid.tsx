@@ -8,7 +8,7 @@ interface FeatureGridProps {
 
 export const FeatureGrid = ({ title, text }: FeatureGridProps): JSX.Element => {
   return (
-    <div className="w-full max-w-2xs py-5 px-3 bg-(--gray-200) dark:bg-(--gray-800) rounded-xl">
+    <div className="w-full max-w-sm py-5 px-3 bg-(--gray-200) dark:bg-(--gray-800) rounded-xl">
       <h4 className={`${secondFont.className} font-medium`}>{title}</h4>
       <p>{text}</p>
     </div>
