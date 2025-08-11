@@ -1,6 +1,5 @@
 export function getBaseUrlClient(): string | undefined {
   if (typeof window !== 'undefined') {
-    console.log(window.location.origin);
     return window.location.origin;
   }
   return undefined;

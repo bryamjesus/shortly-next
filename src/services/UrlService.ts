@@ -18,7 +18,6 @@ export const getShortUrl = async (url: string): Promise<UrlState> => {
 };
 
 export const getShortenedUrlByCode = async (shortCode: string) => {
-  console.log(`${FULL_URL}/${shortCode}`);
   try {
     const response = await fetch(`${FULL_URL}/${shortCode}`, {
       method: 'GET',

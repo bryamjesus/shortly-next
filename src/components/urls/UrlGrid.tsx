@@ -8,7 +8,6 @@ import { UrlGridItem } from './UrlGridItem';
 export const UrlGrid = () => {
   const urls = useAppSelector((state) => state.url);
 
-  console.log(urls, getBaseUrlClient(), getBaseHostClient());
   return (
     <>
       {urls && urls.length > 0 && (
